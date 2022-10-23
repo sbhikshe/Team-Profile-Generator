@@ -55,7 +55,7 @@ function generateMarkup(team) {
         </div>
         <div class="card-body bg-light text-primary">
           <p class="card-text"><b>ID:</b> ${member.employee.getId()}</p>
-          <p class="card-text"><b>Email:</b> ${member.employee.getEmail()}</p>
+          <p class="card-text"><b>Email:</b><a href="mailto:${member.employee.getEmail()}">${member.employee.getEmail()}</a></p>
           ${specificMarkup}
         </div>
       </div>           
