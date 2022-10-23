@@ -1,0 +1,14 @@
+
+h1 {
+  text-align: center;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+p {
+  /*background-color: white;*/
+  /*border-color: gray solid 1px;*/
+  font-size: 90%;
+}

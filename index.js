@@ -2,6 +2,7 @@ const inquirer = require('inquirer');
 const Manager = require('./lib/manager.js');
 const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
+const htmlGenerator = require('./src/generateHtml.js');
 
 /*
 const teamManager = new Manager("Richard", "001", "richard@teams.com", "408-555-6000");
@@ -126,6 +127,7 @@ function addEmployee() {
         for (const employee of team) {
           console.log(employee);
         }
+        htmlGenerator.generateMarkup(team);
       }
     });
 }
