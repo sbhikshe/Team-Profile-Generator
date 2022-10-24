@@ -15,7 +15,7 @@ let markup_begin = `
   <h1 class="text-light">My Team</h1>
   </div>
 
-  <div class="container row justify-content-around" id="employees">
+  <div class="container-fluid row justify-content-around" id="employees">
 `;
 
 /* Card added in the middle for every employee */
@@ -24,6 +24,7 @@ let markup_begin = `
 let markup_end = `
 </div>
 </body>
+<script src="https://kit.fontawesome.com/c9ec3b90de.js" crossorigin="anonymous"></script>
 </html>
 `;
 
@@ -36,22 +37,29 @@ function generateMarkup(team) {
     for (member of team) {
       /* add the html with the template literals */
       let specificMarkup = "";
+      let specificIcon = "";
       switch (member.getRole()) {
         case "Manager": specificMarkup += `<p class="card-text"><b>Ph:</b> ${member.getNumber()}</p>`;
+                        specificIcon = `<i class="fa-solid fa-mug-hot"></i>`;
                         break;
         case "Engineer": let username = member.getGithub();
                         specificMarkup += `<p class="card-text"><b>Github:</b><a href="https://github.com/${username}">${username}</a></p>`;
+                        specificIcon = `<i class="fa-solid fa-glasses"></i>`;
                         break;
         case "Intern":  specificMarkup += `<p class="card-text"><b>School:</b> ${member.getSchool()}</p>`;
+                        specificIcon = `<i class="fa-solid fa-graduation-cap"></i>`;
                         break;
         default: /* do nothing */
       };
 
       markup +=  `
-      <div class="card border-secondary mb-3" style="max-width: 18rem;">
-        <div class="card-header bg-dark text-white">
+      <div id="employee" class="card mb-3" style="max-width: 18rem;">
+        <div class="card-header bg-primary text-white">
         <h5>${member.employee.getName()}</h5>
-        <h6 class="card-title">${member.getRole()}</h6>
+        <div class="container row">
+          ${specificIcon}
+          <h6 class="card-title">${member.getRole()}</h6>
+        </div>
         </div>
         <div class="card-body bg-light text-primary">
           <p class="card-text"><b>ID:</b> ${member.employee.getId()}</p>
@@ -60,13 +68,6 @@ function generateMarkup(team) {
         </div>
       </div>           
       `;
-      /*
-      markup += specificMarkup;
-      markup += `    
-        </div>
-      </div>  
-      `;
-      */
     }
     markup += markup_end;
     writeToFile();

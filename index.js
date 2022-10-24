@@ -45,7 +45,7 @@ let managerQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the manager's office number",
+    message: "Please enter the manager's office number:",
     name: 'officeNumber'
   }  
 ];
@@ -55,7 +55,7 @@ let engineerQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the engineer's Github username",
+    message: "Please enter the engineer's Github username:",
     name: 'githubUsername'
   }  
 ];
@@ -65,7 +65,7 @@ let internQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the intern's school",
+    message: "Please enter the intern's school:",
     name: 'school'
   }  
 ];
@@ -123,10 +123,6 @@ function addEmployee() {
         addIntern();
       } else {
         console.log("Done adding employees");
-        console.log("The team: ");
-        for (const employee of team) {
-          console.log(employee);
-        }
         htmlGenerator.generateMarkup(team);
       }
     });

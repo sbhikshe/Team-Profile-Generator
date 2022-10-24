@@ -4,11 +4,17 @@ h1 {
 }
 
 body {
-  background-color: aliceblue;
+  background-color: white;
 }
 
+#employee {
+  box-shadow: 5px black;
+}
 p {
   /*background-color: white;*/
   /*border-color: gray solid 1px;*/
   font-size: 90%;
+}
+i {
+  padding-right: 4px;;
 }
