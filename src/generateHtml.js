@@ -55,15 +55,15 @@ function generateMarkup(team) {
       markup +=  `
       <div id="employee" class="card mb-3" style="max-width: 18rem;">
         <div class="card-header bg-primary text-white">
-        <h5>${member.employee.getName()}</h5>
+        <h5>${member.getName()}</h5>
         <div class="container row">
           ${specificIcon}
           <h6 class="card-title">${member.getRole()}</h6>
         </div>
         </div>
         <div class="card-body bg-light text-primary">
-          <p class="card-text"><b>ID:</b> ${member.employee.getId()}</p>
-          <p class="card-text"><b>Email:</b><a href="mailto:${member.employee.getEmail()}">${member.employee.getEmail()}</a></p>
+          <p class="card-text"><b>ID:</b> ${member.getId()}</p>
+          <p class="card-text"><b>Email:</b><a href="mailto:${member.getEmail()}">${member.getEmail()}</a></p>
           ${specificMarkup}
         </div>
       </div>           
