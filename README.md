@@ -46,14 +46,14 @@ Answer the prompt questions and proceed to generate the html file - index.html T
 
 
 ## Tests
-### 1. Check if the index.html file is generated under the *dist* directory.
-### 2. Run tests with jest for each class - Employee, Manager, Engineer and Intern
+#### 1. Check if the index.html file is generated under the *dist* directory.
+#### 2. Run tests with jest for each class - Employee, Manager, Engineer and Intern
 ```
 $ npm run test
 ```
 
 ## Code Snippets
-### 1. Classes - Employee base class; Manager, Engineer and Intern inherit from Employee.
+#### 1. Classes - Employee base class; Manager, Engineer and Intern inherit from Employee.
 
 #### Engineer class
 ```
@@ -92,7 +92,7 @@ function addManager() {
 }
 ```
 
-### 2. Generate the HTML - this code checks the employee's role and displays the role along with a specific icon. The ```specificMarkup``` gets properties that are specific to that role (office number, github link, or school name). 
+#### 2. Generate the HTML - this code checks the employee's role and displays the role along with a specific icon. The ```specificMarkup``` gets properties that are specific to that role (office number, github link, or school name). 
 ```
 switch (member.getRole()) {
     case "Manager": specificMarkup += `<p class="card-text"><b>Ph:</b> ${member.getNumber()}</p>`;
