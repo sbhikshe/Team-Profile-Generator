@@ -4,30 +4,37 @@ const Engineer = require('./lib/engineer.js');
 const Intern = require('./lib/intern.js');
 const htmlGenerator = require('./src/generateHtml.js');
 
-/* Manager questions */
+/* Employee questions */
 let employeeQs = [
   {
     type: 'input',
-    message: "Please enter the employee's name:",
-    name: 'name'
+    message: "Please enter the name:",
+    name: 'name',
+    validate (name) {
+      if(!name || name == "") {
+        return ("Please enter a name");
+      }
+      return true;
+    }
   },
   {
     type: 'input',
-    message: "Please enter the employee's ID number:",
+    message: "Please enter the ID number:",
     name: 'id'
   },
   {
     type: 'input',
-    message: "Please enter employee's email:",
+    message: "Please enter an email address:",
     name: 'email'
   }
 ];
 
+/* Manager questions */
 let managerQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the manager's office number:",
+    message: "Please enter the office number:",
     name: 'officeNumber'
   }  
 ];
@@ -37,7 +44,7 @@ let engineerQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the engineer's Github username:",
+    message: "Please enter the Github username:",
     name: 'githubUsername'
   }  
 ];
@@ -47,7 +54,7 @@ let internQs = [
   ...employeeQs,
   {
     type: 'input',
-    message: "Please enter the intern's school:",
+    message: "Please enter the school:",
     name: 'school'
   }  
 ];
@@ -64,14 +71,14 @@ let chooseEmployeeQs = [
 let team = []; // array of employees
 
 function addManager() {
-inquirer.prompt(managerQs)
-.then(data => {
-  console.log(data);
-  var manager = new Manager(data.name, data.id, data.email, data.officeNumber);
-  team.push(manager);
-  console.log(manager);
-  addEmployee();
-});
+  console.log("Add the manager: ");
+  inquirer.prompt(managerQs)
+  .then(data => {
+    console.log(data);
+    var manager = new Manager(data.name, data.id, data.email, data.officeNumber);
+    team.push(manager);
+    addEmployee();
+  });
 }
 
 function addEngineer() {
@@ -111,7 +118,9 @@ function addEmployee() {
 }
 
 function buildTeam() {
-  /* Manager is first, employees optional! */
+  /* Manager is added first, other employees are added after this. */
   addManager();
+ 
 }
+
 buildTeam();

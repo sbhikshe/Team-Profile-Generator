@@ -14,9 +14,9 @@ describe("engineer", () => {
     expect(engineer.githubUsername).toEqual(github);
   });
   it("Construct an Employee object, check the role is set to 'Engineer' ", () => {
-    let name = "Richard";
+    let name = "Chris";
     let id = "001";
-    let email = "richard@teams.com";
+    let email = "chris@teams.com";
     let github = "chrisH";
 
     let engineer = new Engineer(name, id, email, github);
@@ -24,9 +24,9 @@ describe("engineer", () => {
     expect(engineer.getRole()).toEqual("Engineer");
   });
   it("Construct an Employee object, check getGithub() ", () => {
-    let name = "Richard";
+    let name = "Chris";
     let id = "001";
-    let email = "richard@teams.com";
+    let email = "chris@teams.com";
     let github = "chrisH";
 
     let engineer = new Engineer(name, id, email, github);

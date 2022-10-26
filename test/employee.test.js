@@ -13,6 +13,8 @@ describe("employee", () => {
   });
   /* Not able to throw from the constructor even if its wrapped
   up in a function */
+  /* Added check for this at the time of user input. So, don't really
+  need to check for empty name string later. */
   /*
   it("Constructing employee without a name", () => {
     let name = "";
